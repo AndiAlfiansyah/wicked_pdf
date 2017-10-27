@@ -6,8 +6,8 @@ class WickedPdf
       return if base != ActionController::Base
 
       base.class_eval do
-        alias_method_chain :render, :wicked_pdf
-        alias_method_chain :render_to_string, :wicked_pdf
+        alias_method :render, :wicked_pdf
+        alias_method :render_to_string, :wicked_pdf
         if respond_to?(:after_action)
           after_action :clean_temp_files
         else
